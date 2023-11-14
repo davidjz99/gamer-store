@@ -3305,26 +3305,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\aange\\.nuget\\packages\\": {}
+    "/Users/david/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aange\\OneDrive\\Documentos\\Portafolio Developer\\GamerStore\\gamer_store_api\\gamer_store_api.csproj",
+      "projectUniqueName": "/Users/david/Documents/Portafolio developer/GamerStore/gamer-store-api/gamer_store_api.csproj",
       "projectName": "gamer_store_api",
-      "projectPath": "C:\\Users\\aange\\OneDrive\\Documentos\\Portafolio Developer\\GamerStore\\gamer_store_api\\gamer_store_api.csproj",
-      "packagesPath": "C:\\Users\\aange\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aange\\OneDrive\\Documentos\\Portafolio Developer\\GamerStore\\gamer_store_api\\obj\\",
+      "projectPath": "/Users/david/Documents/Portafolio developer/GamerStore/gamer-store-api/gamer_store_api.csproj",
+      "packagesPath": "/Users/david/.nuget/packages/",
+      "outputPath": "/Users/david/Documents/Portafolio developer/GamerStore/gamer-store-api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\aange\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/david/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3381,7 +3379,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.403/RuntimeIdentifierGraph.json"
       }
     }
   }
