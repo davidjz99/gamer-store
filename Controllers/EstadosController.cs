@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using gamer_store_api.Data;
+using gamer_store_api.Services;
 using gamer_store_api.Data.Models;
 
 namespace gamer_store_api.Controllers;
@@ -8,24 +8,24 @@ namespace gamer_store_api.Controllers;
 [Route("[controller]")]
 public class EstadosController: ControllerBase
 {
-    private readonly GamerStoreContext _context;
-    public EstadosController(GamerStoreContext context)
+    private readonly EstadosService _service;
+    public EstadosController(EstadosService service)
     {
-        _context = context;
+        _service = service;
     }
 
     #region get
     [HttpGet]
-    public IEnumerable<Estado> GetEstados()
+    public async Task<IEnumerable<Estado>> GetEstados()
     {
-        return _context.Estados.ToList();
+        return await _service.GetEstados();
     }
 
     [HttpGet("{idEstado}")]
-    public ActionResult<Estado> GetEstadoById(int idEstado)
+    public async Task<ActionResult<Estado>> GetEstadoById(int idEstado)
     {
         Console.WriteLine("entra???");
-        var estado = _context.Estados.Find(idEstado);
+        var estado = await _service.GetEstadoById(idEstado);
 
         if(estado is null){
             return NotFound();
@@ -38,58 +38,41 @@ public class EstadosController: ControllerBase
 
     #region set
     [HttpPost]
-    public IActionResult InsertEstado(Estado estado){
-        estado.FechaCreacion = DateTime.Now;
-        estado.FechaModificacion = DateTime.Now;
-        // estado.FechaModificacion = estado.FechaCreacion;
-        //estado.UsuarioCreacion = estado.UsuarioModificacion;
+    public async Task<IActionResult> InsertEstado(Estado estado){        
+        var newEstado = await _service.InsertEstado(estado);  
 
-        _context.Estados.Add(estado);
-        _context.SaveChanges();
-
-        return CreatedAtAction(nameof(GetEstadoById), new { idEstado = estado.IdEstado }, estado);
+        return CreatedAtAction(nameof(GetEstadoById), new { idEstado = newEstado.IdEstado }, newEstado);
     }
     #endregion set
 
     #region put
     [HttpPut("{idEstado}")]
-    public IActionResult UpdateEstado(int idEstado, Estado estado){
+    public async Task<IActionResult> UpdateEstado(int idEstado, Estado estado){
         if(idEstado != estado.IdEstado) return BadRequest();
 
-        var existeEstado = _context.Estados.Find(idEstado);
-        if(existeEstado is null) return NotFound();
+        var estadoUpdated = await _service.UpdateEstado(idEstado, estado);
 
-        existeEstado.Nombre = estado.Nombre;
-        existeEstado.UsuarioModificacion = estado.UsuarioModificacion;
-        existeEstado.FechaModificacion = DateTime.Now;
+        if(estadoUpdated is not null) return CreatedAtAction(nameof(GetEstadoById), new { idEstado = estadoUpdated.IdEstado }, estadoUpdated);
 
-        _context.SaveChanges();
-
-        return CreatedAtAction(nameof(GetEstadoById), new { idEstado = estado.IdEstado }, estado);
+        return NotFound();
     }
 
     [HttpPut("delete/{idEstado}")]
-    public IActionResult DeleteEstado(int idEstado){
-        var existeEstado = _context.Estados.Find(idEstado);
-        if(existeEstado is null) return NotFound();
+    public async Task<IActionResult> DeleteEstado(int idEstado){
+        var estadoDeleted = await _service.DeleteEstado(idEstado);
+        if(estadoDeleted is true) return Ok();
 
-        existeEstado.Activo = false;
-        _context.SaveChanges();
-
-        return Ok();
+        return NotFound();
     }
     #endregion put
 
     // #region delete
     // [HttpDelete("{idEstado}")]
-    // public IActionResult DeleteEstado(int idEstado){        
-    //     var existeEstado = _context.Estados.Find(idEstado);
-    //     if(existeEstado is null) return NotFound();
+    // public async Task<IActionResult> DeleteEstado(int idEstado){        
+    //     var estadoDeleted = await _service.DeleteEstado(idEstado);
+    //     if(estadoDeleted is true) return Ok();
 
-    //     _context.Estados.Remove(existeEstado);
-    //     _context.SaveChanges();
-
-    //     return Ok();
+    //     return NotFound();
     // }
     // #endregion delete
 }
