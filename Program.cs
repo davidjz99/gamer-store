@@ -15,6 +15,7 @@ builder.Services.AddSqlServer<GamerStoreContext>(builder.Configuration.GetConnec
 
 //Service Layer
 builder.Services.AddScoped<EstadosService>();
+builder.Services.AddScoped<CategoriasService>();
 
 var app = builder.Build();
 

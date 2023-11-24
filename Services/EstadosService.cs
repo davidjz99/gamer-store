@@ -1,4 +1,5 @@
 using gamer_store_api.Data;
+using gamer_store_api.Data.DTOs;
 using gamer_store_api.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -26,9 +27,19 @@ public class EstadosService
     #endregion get
     
     #region set
-    public async Task<Estado> InsertEstado(Estado estado){
+    public async Task<Estado> InsertEstado(EstadoDtoSet estadoDTO){
+        var estado = new Estado();
+
+        estado.Nombre = estadoDTO.Nombre;
+        estado.Activo = estadoDTO.Activo;
+        estado.UsuarioCreacion = estadoDTO.UsuarioModificacion;
         estado.FechaCreacion = DateTime.Now;
+        estado.UsuarioModificacion = estadoDTO.UsuarioModificacion;
         estado.FechaModificacion = DateTime.Now;
+
+        //estado.FechaCreacion = DateTime.Now;
+        //estado.FechaModificacion = DateTime.Now;
+
         // estado.FechaModificacion = estado.FechaCreacion;
         //estado.UsuarioCreacion = estado.UsuarioModificacion;
 
@@ -40,7 +51,7 @@ public class EstadosService
     #endregion set
 
     #region put
-    public async Task<Estado?> UpdateEstado(int idEstado, Estado estado){
+    public async Task<Estado?> UpdateEstado(int idEstado, EstadoDtoSet estado){
         var existeEstado = await GetEstadoById(idEstado);
         if(existeEstado is not null){
             existeEstado.Nombre = estado.Nombre;

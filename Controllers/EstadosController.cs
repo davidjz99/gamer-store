@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using gamer_store_api.Services;
 using gamer_store_api.Data.Models;
+using gamer_store_api.Data.DTOs;
 
 namespace gamer_store_api.Controllers;
 
@@ -24,11 +25,10 @@ public class EstadosController: ControllerBase
     [HttpGet("{idEstado}")]
     public async Task<ActionResult<Estado>> GetEstadoById(int idEstado)
     {
-        Console.WriteLine("entra???");
         var estado = await _service.GetEstadoById(idEstado);
 
         if(estado is null){
-            return NotFound();
+            return EstadoNoEncontrado(idEstado);
         }
         else{
             return estado;
@@ -38,7 +38,7 @@ public class EstadosController: ControllerBase
 
     #region set
     [HttpPost]
-    public async Task<IActionResult> InsertEstado(Estado estado){        
+    public async Task<IActionResult> InsertEstado(EstadoDtoSet estado){        
         var newEstado = await _service.InsertEstado(estado);  
 
         return CreatedAtAction(nameof(GetEstadoById), new { idEstado = newEstado.IdEstado }, newEstado);
@@ -47,14 +47,14 @@ public class EstadosController: ControllerBase
 
     #region put
     [HttpPut("{idEstado}")]
-    public async Task<IActionResult> UpdateEstado(int idEstado, Estado estado){
-        if(idEstado != estado.IdEstado) return BadRequest();
+    public async Task<IActionResult> UpdateEstado(int idEstado, EstadoDtoSet estado){
+        if(idEstado != estado.IdEstado) return BadRequest(new { message = $"No coinciden los ids proporcionados" });
 
         var estadoUpdated = await _service.UpdateEstado(idEstado, estado);
 
         if(estadoUpdated is not null) return CreatedAtAction(nameof(GetEstadoById), new { idEstado = estadoUpdated.IdEstado }, estadoUpdated);
 
-        return NotFound();
+        return EstadoNoEncontrado(idEstado);
     }
 
     [HttpPut("delete/{idEstado}")]
@@ -62,7 +62,7 @@ public class EstadosController: ControllerBase
         var estadoDeleted = await _service.DeleteEstado(idEstado);
         if(estadoDeleted is true) return Ok();
 
-        return NotFound();
+        return EstadoNoEncontrado(idEstado);
     }
     #endregion put
 
@@ -75,4 +75,8 @@ public class EstadosController: ControllerBase
     //     return NotFound();
     // }
     // #endregion delete
+
+    public NotFoundObjectResult EstadoNoEncontrado(int idEstado){
+        return NotFound(new { message = $"No existe el estado con id = {idEstado}." });
+    }
 }
