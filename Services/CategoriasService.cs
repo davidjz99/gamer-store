@@ -31,7 +31,7 @@ public class CategoriasService
         var categoria = new Categoria();
 
         categoria.Nombre = categoriaDTO.Nombre;
-        categoria.Descripcion = categoriaDTO.Nombre;
+        categoria.Descripcion = categoriaDTO.Descripcion;
         categoria.Activo = categoriaDTO.Activo;
         categoria.UsuarioCreacion = categoriaDTO.UsuarioModificacion;
         categoria.FechaCreacion = DateTime.Now;
@@ -50,7 +50,7 @@ public class CategoriasService
         var existeCategoria = await GetCategoriaById(idCategoria);
         if(existeCategoria is not null){
             existeCategoria.Nombre = categoria.Nombre;
-            existeCategoria.Nombre = categoria.Descripcion;
+            existeCategoria.Descripcion = categoria.Descripcion;
             existeCategoria.UsuarioModificacion = categoria.UsuarioModificacion;
             existeCategoria.FechaModificacion = DateTime.Now;
 

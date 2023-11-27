@@ -37,13 +37,6 @@ public class CategoriasController: ControllerBase
     }
     #endregion get
 
-
-
-
-
-
-
-
     #region set
     [HttpPost]
     public async Task<IActionResult> InsertCategoria(CategoriaDtoSet categoria){        
@@ -52,11 +45,6 @@ public class CategoriasController: ControllerBase
         return CreatedAtAction(nameof(GetCategoriaById), new { idCategoria = newCategoria.IdCategoria }, newCategoria);
     }
     #endregion set
-
-
-
-
-
 
     #region put
     [HttpPut("{idCategoria}")]

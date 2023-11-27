@@ -28,7 +28,7 @@ public partial class GamerStoreContext : DbContext
 
     public virtual DbSet<Producto> Productos { get; set; }
 
-    public virtual DbSet<Role> Roles { get; set; }
+    public virtual DbSet<Rol> Roles { get; set; }
 
     public virtual DbSet<UnidadesMedidum> UnidadesMedida { get; set; }
 
@@ -229,7 +229,7 @@ public partial class GamerStoreContext : DbContext
                 .HasConstraintName("fk_Id_Unidad_Medida");
         });
 
-        modelBuilder.Entity<Role>(entity =>
+        modelBuilder.Entity<Rol>(entity =>
         {
             entity.HasKey(e => e.IdRol).HasName("PK__Roles__55932E868875D73D");
 
