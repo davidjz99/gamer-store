@@ -22,6 +22,7 @@ builder.Services.AddScoped<CategoriasService>();
 builder.Services.AddScoped<RolesService>();
 builder.Services.AddScoped<UsuariosService>();
 builder.Services.AddScoped<LoginService>();
+builder.Services.AddScoped<ProductosService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).
     AddJwtBearer(options => {

@@ -37,7 +37,7 @@ public partial class Producto
 
     public virtual Plataforma? IdPlataformaNavigation { get; set; }
 
-    public virtual UnidadesMedidum IdUnidadMedidaNavigation { get; set; } = null!;
+    public virtual UnidadesMedida IdUnidadMedidaNavigation { get; set; } = null!;
 
     public virtual ICollection<VentasProducto> VentasProductos { get; set; } = new List<VentasProducto>();
 }

@@ -30,7 +30,7 @@ public partial class GamerStoreContext : DbContext
 
     public virtual DbSet<Rol> Roles { get; set; }
 
-    public virtual DbSet<UnidadesMedidum> UnidadesMedida { get; set; }
+    public virtual DbSet<UnidadesMedida> UnidadesMedida { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
@@ -256,7 +256,7 @@ public partial class GamerStoreContext : DbContext
                 .HasColumnName("Usuario_Modificacion");
         });
 
-        modelBuilder.Entity<UnidadesMedidum>(entity =>
+        modelBuilder.Entity<UnidadesMedida>(entity =>
         {
             entity.HasKey(e => e.IdUnidadMedida).HasName("PK__Unidades__DA58F4E770144494");
 

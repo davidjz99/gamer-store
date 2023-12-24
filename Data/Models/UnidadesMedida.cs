@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace gamer_store_api.Data.Models;
 
-public partial class UnidadesMedidum
+public partial class UnidadesMedida
 {
     public int IdUnidadMedida { get; set; }
 
