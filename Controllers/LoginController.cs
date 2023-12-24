@@ -2,10 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using gamer_store_api.Services;
 using gamer_store_api.Data.Models;
 using gamer_store_api.Data.DTOs;
-using System.Security.Claims;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
 
 namespace gamer_store_api.Controllers;
 
@@ -30,7 +26,8 @@ public class LoginController: ControllerBase
             return BadRequest(new { message = "Credenciales invalidas" });
         } 
 
-        //token
-        return Ok(new { token = "token value" });
+        string jwtToken = _service.GenerarToken(user);
+
+        return Ok(new { token = jwtToken });
     }
 }

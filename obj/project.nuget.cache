@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "J0qaF9/dUkDRz/vRECTI349vyT+jXTGShrj8TeKCdPjFy34KOQrqa4IZAwpjyuIQil0Ka6hiyXAXfGj6HM5a9w==",
+  "dgSpecHash": "jxJqFrPROBVyWTkJmh+vcqFf6gHXfq0vyf4i3JYehoOsvz6NZS/N2uHrVVC7V+aPZ1DsRDjauA0+HA5ZqhH4Sg==",
   "success": true,
   "projectFilePath": "/Users/david/Documents/Portafolio developer/GamerStore/gamer-store-api/gamer_store_api.csproj",
   "expectedPackageFiles": [
     "/Users/david/.nuget/packages/azure.core/1.25.0/azure.core.1.25.0.nupkg.sha512",
     "/Users/david/.nuget/packages/azure.identity/1.7.0/azure.identity.1.7.0.nupkg.sha512",
     "/Users/david/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
+    "/Users/david/.nuget/packages/microsoft.aspnetcore.authentication.jwtbearer/7.0.13/microsoft.aspnetcore.authentication.jwtbearer.7.0.13.nupkg.sha512",
     "/Users/david/.nuget/packages/microsoft.aspnetcore.openapi/7.0.13/microsoft.aspnetcore.openapi.7.0.13.nupkg.sha512",
     "/Users/david/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/david/.nuget/packages/microsoft.csharp/4.5.0/microsoft.csharp.4.5.0.nupkg.sha512",

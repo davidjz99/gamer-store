@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Mvc;
 using gamer_store_api.Services;
 using gamer_store_api.Data.Models;
 using gamer_store_api.Data.DTOs;
+using Microsoft.AspNetCore.Authorization;
 
 namespace gamer_store_api.Controllers;
 
+[Authorize]
 [ApiController]
 [Route("[controller]")]
 public class RolesController: ControllerBase
