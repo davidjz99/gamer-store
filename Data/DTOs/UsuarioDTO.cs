@@ -16,11 +16,15 @@ public class UsuarioDtoSet
     public string CodigoPostal { get; set; } = "";
     public bool Activo { get; set; } = true;
     public string UsuarioModificacion { get; set; } = "";
+    public string Username { get; set; } = "";
+    public string Password { get; set; } = "";
 }
 
 public class UsuarioDtoGet
 {
     public int IdUsuario { get; set; }
+    public string Username { get; set; } = "";
+    public string Password { get; set; } = "";
     public string Rol { get; set; } = "";
     public string Estado { get; set; } = "";
     public string Nombres { get; set; } = "";

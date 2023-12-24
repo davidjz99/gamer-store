@@ -42,7 +42,7 @@ public partial class GamerStoreContext : DbContext
     {
         modelBuilder.Entity<Categoria>(entity =>
         {
-            entity.HasKey(e => e.IdCategoria).HasName("PK__Categori__CB9033496A8C7803");
+            entity.HasKey(e => e.IdCategoria).HasName("PK__Categori__CB9033499093005F");
 
             entity.Property(e => e.IdCategoria).HasColumnName("Id_Categoria");
             entity.Property(e => e.Descripcion)
@@ -69,7 +69,7 @@ public partial class GamerStoreContext : DbContext
 
         modelBuilder.Entity<Envio>(entity =>
         {
-            entity.HasKey(e => e.IdEnvio).HasName("PK__Envios__3A8388337950ECB0");
+            entity.HasKey(e => e.IdEnvio).HasName("PK__Envios__3A8388336B7FCC23");
 
             entity.Property(e => e.IdEnvio).HasColumnName("Id_Envio");
             entity.Property(e => e.FechaCreacion)
@@ -108,7 +108,7 @@ public partial class GamerStoreContext : DbContext
 
         modelBuilder.Entity<Estado>(entity =>
         {
-            entity.HasKey(e => e.IdEstado).HasName("PK__Estados__AB2EB6F8A23FD4AC");
+            entity.HasKey(e => e.IdEstado).HasName("PK__Estados__AB2EB6F8F5F6145F");
 
             entity.Property(e => e.IdEstado).HasColumnName("Id_Estado");
             entity.Property(e => e.FechaCreacion)
@@ -132,7 +132,7 @@ public partial class GamerStoreContext : DbContext
 
         modelBuilder.Entity<MetodosPago>(entity =>
         {
-            entity.HasKey(e => e.IdMetodoPago).HasName("PK__Metodos___E4BD96C4BE45B5DD");
+            entity.HasKey(e => e.IdMetodoPago).HasName("PK__Metodos___E4BD96C4F4EC63E7");
 
             entity.ToTable("Metodos_Pago");
 
@@ -158,7 +158,7 @@ public partial class GamerStoreContext : DbContext
 
         modelBuilder.Entity<Plataforma>(entity =>
         {
-            entity.HasKey(e => e.IdPlataforma).HasName("PK__Platafor__BDB8CABE03946348");
+            entity.HasKey(e => e.IdPlataforma).HasName("PK__Platafor__BDB8CABEAB15B703");
 
             entity.Property(e => e.IdPlataforma).HasColumnName("Id_Plataforma");
             entity.Property(e => e.Abreviacion)
@@ -185,7 +185,7 @@ public partial class GamerStoreContext : DbContext
 
         modelBuilder.Entity<Producto>(entity =>
         {
-            entity.HasKey(e => e.IdProducto).HasName("PK__Producto__2085A9CFBED6C454");
+            entity.HasKey(e => e.IdProducto).HasName("PK__Producto__2085A9CF74694B00");
 
             entity.Property(e => e.IdProducto).HasColumnName("Id_Producto");
             entity.Property(e => e.Descripcion)
@@ -231,7 +231,7 @@ public partial class GamerStoreContext : DbContext
 
         modelBuilder.Entity<Rol>(entity =>
         {
-            entity.HasKey(e => e.IdRol).HasName("PK__Roles__55932E868875D73D");
+            entity.HasKey(e => e.IdRol).HasName("PK__Roles__55932E86772F97DE");
 
             entity.Property(e => e.IdRol).HasColumnName("Id_Rol");
             entity.Property(e => e.Descripcion)
@@ -258,7 +258,7 @@ public partial class GamerStoreContext : DbContext
 
         modelBuilder.Entity<UnidadesMedidum>(entity =>
         {
-            entity.HasKey(e => e.IdUnidadMedida).HasName("PK__Unidades__DA58F4E717645BF7");
+            entity.HasKey(e => e.IdUnidadMedida).HasName("PK__Unidades__DA58F4E770144494");
 
             entity.ToTable("Unidades_Medida");
 
@@ -287,7 +287,7 @@ public partial class GamerStoreContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuarios__63C76BE2B5EBC8DA");
+            entity.HasKey(e => e.IdUsuario).HasName("PK__Usuarios__63C76BE2EF6E160F");
 
             entity.Property(e => e.IdUsuario).HasColumnName("Id_Usuario");
             entity.Property(e => e.ApellidoMaterno)
@@ -331,6 +331,12 @@ public partial class GamerStoreContext : DbContext
                 .HasMaxLength(10)
                 .IsUnicode(false)
                 .HasColumnName("Numero_Telefonico");
+            entity.Property(e => e.Password)
+                .HasMaxLength(100)
+                .IsUnicode(false);
+            entity.Property(e => e.Username)
+                .HasMaxLength(100)
+                .IsUnicode(false);
             entity.Property(e => e.UsuarioCreacion)
                 .HasMaxLength(150)
                 .IsUnicode(false)
@@ -353,7 +359,7 @@ public partial class GamerStoreContext : DbContext
 
         modelBuilder.Entity<Venta>(entity =>
         {
-            entity.HasKey(e => e.IdVenta).HasName("PK__Ventas__B3C9EABDA10CB5EF");
+            entity.HasKey(e => e.IdVenta).HasName("PK__Ventas__B3C9EABD6564B7F7");
 
             entity.Property(e => e.IdVenta).HasColumnName("Id_Venta");
             entity.Property(e => e.FechaCreacion)
@@ -374,7 +380,7 @@ public partial class GamerStoreContext : DbContext
 
         modelBuilder.Entity<VentasProducto>(entity =>
         {
-            entity.HasKey(e => e.IdVentaProducto).HasName("PK__Ventas_P__B4E6DEA5E0842498");
+            entity.HasKey(e => e.IdVentaProducto).HasName("PK__Ventas_P__B4E6DEA5D4B6DE4C");
 
             entity.ToTable("Ventas_Productos");
 

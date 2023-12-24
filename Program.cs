@@ -18,6 +18,7 @@ builder.Services.AddScoped<EstadosService>();
 builder.Services.AddScoped<CategoriasService>();
 builder.Services.AddScoped<RolesService>();
 builder.Services.AddScoped<UsuariosService>();
+builder.Services.AddScoped<LoginService>();
 
 var app = builder.Build();
 

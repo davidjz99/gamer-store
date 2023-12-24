@@ -22,6 +22,8 @@ public class UsuariosService
         Select(u => new UsuarioDtoGet
         {
             IdUsuario = u.IdUsuario,
+            Username = u.Username,
+            Password = u.Password,
             Rol = u.IdRolNavigation.Nombre,
             Estado = u.IdEstadoNavigation.Nombre,
             Nombres = u.Nombres,
@@ -45,6 +47,8 @@ public class UsuariosService
         Select(u => new UsuarioDtoGet
         {
             IdUsuario = u.IdUsuario,
+            Username = u.Username,
+            Password = u.Password,
             Rol = u.IdRolNavigation.Nombre,
             Estado = u.IdEstadoNavigation.Nombre,
             Nombres = u.Nombres,
