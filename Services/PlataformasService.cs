@@ -15,9 +15,32 @@ public class PlataformasService
     }
 
     #region get
-    public async Task<IEnumerable<Plataforma>> GetPlataformas()
+    public async Task<IEnumerable<PlataformaDtoGet>> GetPlataformas()
     {
-        return await _context.Plataformas.ToListAsync();
+        return await  _context.Plataformas.
+        Where(p => p.Activo == true).
+        Select(p => new PlataformaDtoGet
+        {
+            IdPlataforma = p.IdPlataforma,
+            Nombre = p.Nombre,
+            Abreviacion = p.Abreviacion,
+            Activo = p.Activo,
+            UsuarioModificacion = p.UsuarioModificacion
+        }).ToListAsync();
+    }
+
+    public async Task<PlataformaDtoGet?> GetPlataformaDtoById(int idPlataforma)
+    {
+        return await _context.Plataformas.
+        Where(p => p.IdPlataforma == idPlataforma && p.Activo == true).
+        Select(p => new PlataformaDtoGet
+        {
+            IdPlataforma = p.IdPlataforma,
+            Nombre = p.Nombre,
+            Abreviacion = p.Abreviacion,
+            Activo = p.Activo,
+            UsuarioModificacion = p.UsuarioModificacion
+        }).SingleOrDefaultAsync();
     }
 
     public async Task<Plataforma?> GetPlataformaById(int idPlataforma)

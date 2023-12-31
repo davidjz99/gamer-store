@@ -20,15 +20,15 @@ public class PlataformasController: ControllerBase
 
     #region get
     [HttpGet]
-    public async Task<IEnumerable<Plataforma>> GetPlataformas()
+    public async Task<IEnumerable<PlataformaDtoGet>> GetPlataformas()
     {
         return await _service.GetPlataformas();
     }
 
     [HttpGet("{idPlataforma}")]
-    public async Task<ActionResult<Plataforma>> GetPlataformaById(int idPlataforma)
+    public async Task<ActionResult<PlataformaDtoGet>> GetPlataformaById(int idPlataforma)
     {
-        var plataforma = await _service.GetPlataformaById(idPlataforma);
+        var plataforma = await _service.GetPlataformaDtoById(idPlataforma);
 
         if(plataforma is null){
             return PlataformaNoEncontrada(idPlataforma);
