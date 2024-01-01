@@ -17,6 +17,8 @@ public partial class Venta
 
     public DateTime FechaModificacion { get; set; }
 
+    public decimal? Total { get; set; }
+
     public virtual ICollection<Envio> Envios { get; set; } = new List<Envio>();
 
     public virtual ICollection<VentasProducto> VentasProductos { get; set; } = new List<VentasProducto>();

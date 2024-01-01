@@ -26,6 +26,7 @@ builder.Services.AddScoped<ProductosService>();
 builder.Services.AddScoped<PlataformasService>();
 builder.Services.AddScoped<MetodosPagoService>();
 builder.Services.AddScoped<UnidadesMedidaService>();
+builder.Services.AddScoped<VentasProductosService>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).
     AddJwtBearer(options => {

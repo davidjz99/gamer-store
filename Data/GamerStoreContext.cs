@@ -368,6 +368,7 @@ public partial class GamerStoreContext : DbContext
             entity.Property(e => e.FechaModificacion)
                 .HasColumnType("datetime")
                 .HasColumnName("Fecha_Modificacion");
+            entity.Property(e => e.Total).HasColumnType("decimal(8, 2)");
             entity.Property(e => e.UsuarioCreacion)
                 .HasMaxLength(150)
                 .IsUnicode(false)
